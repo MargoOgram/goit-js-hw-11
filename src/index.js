@@ -61,6 +61,7 @@ function fetchPosts() {
   postApiService.fetchPost().then(data => {
     const curentPage = postApiService.page - 1;
     postApiService.hits = data.totalHits;
+    
 
     if (!data.totalHits) {
       loadMoreBtn.hide();
@@ -70,7 +71,7 @@ function fetchPosts() {
         'Sorry, there are no images matching your search query. Please try again.'
       );
     }
-
+  
     if (!data.hits.length) {
       loadMoreBtn.hide();
       pageLoadStatus.lastElemShow();
@@ -82,6 +83,12 @@ function fetchPosts() {
       loadMoreBtn.show();
     }
     pageLoadStatus.enable();
+
+      if (data.hits.length<40) {
+       Notify.failure(`We're sorry, but you've reached the end of search results.`);
+        loadMoreBtn.hide();
+    }
+
   });
 }
 function renderPost(data) {
