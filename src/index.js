@@ -6,6 +6,8 @@ import PostApiService from './js/posts-servise';
 import LoadMoreBtn from './js/load-more-btn';
 import PageLoadStatus from './js/load-status';
 import formSticky from './js/form-sticky';
+
+
 const refs = {
   formSearch: document.querySelector('.search-form'),
   gallery: document.querySelector('.gallery'),
